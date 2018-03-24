@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+group = 'com.codescup'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+war {
+	outputs.upToDateWhen { false }
+    enabled = true
+archiveName 'expense-api.war'
+}
+configurations{
+	runtime.exclude module : "log4j-over-slf4j"
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web'){
+		exclude module: "spring-boot-starter-tomcat"
+	} 
+	compile "javax:javaee-api:7.0"
+	compile("com.sun.jersey:jersey-core:1.17.1")
+	compile("commons-logging:commons-logging:1.2")
+	compile project(':expense-app')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

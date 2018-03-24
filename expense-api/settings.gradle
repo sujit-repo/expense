@@ -1,0 +1,3 @@
+include 'expense-app'
+project(':expense-app').projectDir = new File(settingsDir, '../expense-app')
+rootProject.name='expense-api'
