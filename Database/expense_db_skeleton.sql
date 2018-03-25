@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2018 at 07:05 PM
+-- Generation Time: Mar 25, 2018 at 09:02 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -45,6 +45,7 @@ CREATE TABLE `EXPENSE_DETAILS` (
   `AMOUNT` float NOT NULL,
   `TAX` float NOT NULL,
   `OFFER` float NOT NULL,
+  `IMPACT_DAYS` int(10) DEFAULT NULL,
   `DECLARED` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
